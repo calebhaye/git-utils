@@ -1,0 +1,7 @@
+#! /bin/sh
+
+source ~/.bash_profile
+
+init-git-utils
+git-set-current-feature
+git-show-current-feature
