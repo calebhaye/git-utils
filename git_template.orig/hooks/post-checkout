@@ -1,7 +1,7 @@
-#! /bin/bash
+#!/bin/bash
 
-source ~/.bash_profile
+CURRENT_FEATURE=$(git symbolic-ref -q HEAD)
+CURRENT_FEATURE=${CURRENT_FEATURE##refs/heads/}
+CURRENT_FEATURE=${CURRENT_FEATURE:-HEAD}
 
-init-git-utils
-git-set-current-feature
-git-show-current-feature
+echo "CURRENT FEATURE: $CURRENT_FEATURE"
