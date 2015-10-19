@@ -9,4 +9,4 @@
 
 ### Post-Checkout
 
-This git template will automatically run `init-git-utils`, `git-set-current-feature`, and `git-show-current-feature` upon checkout (branch change)
+This hook contained within the git template will automatically set the value of the `$CF` environment variable to equal the name of the current branch.
