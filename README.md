@@ -43,3 +43,5 @@ Displays the current feature branch (i.e. the current value of $CF)
 ## Contributing
 
 Any feedback is welcomed.  Fork/commit/pull-request ... yadda yadda :)
+
+Special thanks to @mcary for helping with the `trap` bit :+1:
