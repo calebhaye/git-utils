@@ -29,6 +29,21 @@ This repository contains Bash scripts which are intended to make life as a softw
 Assuming you followed the aforementioned instructions, the `$CF` environment variable will always equal the name of the current branch you are on. :+1:
 
 
+## Installing
+
+Add the `git-utils/bin` to your `$PATH`
+
+## Available Commands
+
+**init-git-utils** 
+Sources the bash aliases
+
+**git-set-current-feature** 
+Sets the $CF variable to the current git branch
+
+**git-show-current-feature** 
+Displays the current feature branch (i.e. the current value of $CF)
+
 ## Contributing
 
 Any feedback is welcomed.  Fork/commit/pull-request ... yadda yadda :)
