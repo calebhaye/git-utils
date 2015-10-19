@@ -1,7 +1,5 @@
 #!/bin/bash
 
-CURRENT_FEATURE=$(git symbolic-ref -q HEAD)
-CURRENT_FEATURE=${CURRENT_FEATURE##refs/heads/}
-CURRENT_FEATURE=${CURRENT_FEATURE:-HEAD}
+source ~/.bashrc
 
-echo "CURRENT FEATURE: $CURRENT_FEATURE"
+cf
