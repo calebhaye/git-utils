@@ -20,7 +20,12 @@ This repository contains Bash scripts which are intended to make life as a softw
 
     trap '
       if [ "x$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "xtrue" ]; then
-        export CF=`current-feature`
+        CURRENT_FEATURE=$(git symbolic-ref -q HEAD)
+        CURRENT_FEATURE=${CURRENT_FEATURE##refs/heads/}
+        CURRENT_FEATURE=${CURRENT_FEATURE:-HEAD}
+
+        export CF=$CURRENT_FEATURE
+        echo "CURRENT FEATURE: $CF"
       fi
     ' DEBUG
     
