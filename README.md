@@ -8,8 +8,8 @@ This repository contains Bash scripts which are intended to make life as a softw
 
 ### Usage
 
-1. Clone this repo to your home directory
-2. Update your `.bashrc` file with the following:
+1. Add the `git-utils/bin` to your `$PATH`
+2. Append the following to your `.bashrc` file:
 
 #### .bashrc 
 
@@ -29,11 +29,7 @@ This repository contains Bash scripts which are intended to make life as a softw
 Assuming you followed the aforementioned instructions, the `$CF` environment variable will always equal the name of the current branch you are on. :+1:
 
 
-## Installing
-
-Add the `git-utils/bin` to your `$PATH`
-
-## Available Commands
+#### Available Commands
 
 **init-git-utils** 
 Sources the bash aliases
