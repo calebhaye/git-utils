@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Script to restore files that only have trailing newline changes
+
+echo "Checking for files with only trailing newline changes..."
+echo ""
+
+# Get list of modified files
+modified_files=$(git diff --name-only)
+
+if [ -z "$modified_files" ]; then
+    echo "No modified files found."
+    exit 0
+fi
+
+restored_count=0
+
+# Check each modified file
+for file in $modified_files; do
+    # Get the diff for this file, excluding headers
+    diff_content=$(git diff "$file" | grep "^[+-]" | grep -v "^---" | grep -v "^+++")
+    
+    # Check if diff only contains additions of empty lines (no deletions, no content additions)
+    has_deletions=$(echo "$diff_content" | grep -c "^-" || true)
+    has_content_additions=$(echo "$diff_content" | grep -c "^+." || true)
+    has_empty_line_additions=$(echo "$diff_content" | grep -c "^+$" || true)
+    
+    # If only empty line additions (no deletions, no content additions)
+    if [ "$has_deletions" -eq 0 ] && [ "$has_content_additions" -eq 0 ] && [ "$has_empty_line_additions" -gt 0 ]; then
+        echo "Restoring: $file (only trailing newlines)"
+        git checkout "$file"
+        ((restored_count++))
+    fi
+done
+
+echo ""
+echo "Restored $restored_count file(s) with only trailing newline changes."
+
